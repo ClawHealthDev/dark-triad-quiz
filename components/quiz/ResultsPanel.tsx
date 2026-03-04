@@ -13,41 +13,59 @@ const TRAIT_CONFIG = {
 
 type TraitKey = keyof typeof TRAIT_CONFIG;
 
-const TRAIT_DESCRIPTIONS: Record<TraitKey, { high: string[]; low: string[] }> = {
+const TRAIT_DESCRIPTIONS: Record<TraitKey, { high: string[]; medium: string[]; low: string[] }> = {
   narcissism: {
     high: [
-      'You carry a powerful sense of self. You expect recognition, and often receive it — your confidence projects outward in ways others find compelling or intimidating depending on context.',
-      'In relationships, your drive for admiration can create tension. Partners and colleagues may feel like supporting characters in your story. The people who stay closest to you have likely learned to give you space to lead.',
-      'At work, you\'re drawn to roles with visibility and authority. You perform well under pressure and self-promote effectively. The risk is tunnel vision on your own advancement at the expense of team cohesion.',
+      'Your Narcissism score is your most significant result. At this level, narcissistic traits — a strong self-orientation, a need for recognition, a sense of being somewhat exceptional — show up prominently in how you move through the world.',
+      'In relationships, your drive for admiration can create tension over time. Partners and colleagues often feel drawn to your confidence early, then gradually like they\'re supporting characters in your story. The people who stay closest to you have learned to give you space to lead.',
+      'Professionally, you\'re drawn to roles with visibility and authority. You self-promote effectively and perform well under pressure. The growth edge is managing the gap between how you experience yourself and how others experience you — especially the people closest to you.',
+      'The research is clear on this: narcissism is highly responsive to self-awareness. People with elevated scores who develop genuine curiosity about others\' inner worlds consistently report better relationships and less of the constant need for validation that, if you\'re honest, is exhausting.',
+    ],
+    medium: [
+      'Your Narcissism score sits in the moderate range — present but not dominant. You have a solid sense of your own value and likely advocate for yourself reasonably well without tipping into entitlement.',
+      'In relationships, you balance your own needs with others\' most of the time. Under stress, you may become more self-focused than usual — this is the direction to watch when things get hard.',
+      'Professionally, you perform well in competitive environments without needing to dominate them. Your growth edge is noticing when the drive for recognition is shaping decisions in ways that aren\'t serving you.',
     ],
     low: [
-      'You tend to undervalue your own contributions and may find it genuinely difficult to take credit even when it\'s deserved. You\'re likely seen as collaborative and easy to work with — sometimes too easy.',
-      'In relationships, you invest deeply and often put others\' needs before your own. This makes you a loyal and attentive partner, but it can also leave you drained or taken for granted.',
-      'Professionally, you may undersell yourself in negotiations and miss opportunities because you\'re waiting to be recognised rather than claiming recognition.',
+      'Your Narcissism score is genuinely low — you tend to undervalue your own contributions and may find it difficult to take credit even when it\'s deserved. You\'re likely seen as collaborative and easy to work with.',
+      'In relationships, you invest deeply and often put others\' needs before your own. This makes you a loyal and attentive partner — and it also means you can be taken for granted more than you should be.',
+      'Professionally, you may undersell yourself in negotiations and miss opportunities by waiting to be recognised rather than claiming recognition. Learning to advocate for yourself — not from ego, but from accuracy — would change a lot.',
     ],
   },
   psychopathy: {
     high: [
-      'You process the world through a cold, analytical lens. Emotions — yours and others\' — are data points rather than drivers. This makes you decisive in high-pressure situations where most people freeze.',
-      'Your empathy is selective and largely cognitive. You can model what others feel without being moved by it. This is an extraordinary asset in negotiation, leadership, and crisis response.',
-      'The shadow side: long-term relationships require sustained emotional investment that you may find taxing. The people closest to you have likely experienced moments of feeling unseen or disposable.',
+      'Your Psychopathy score is your most analytically significant result. At this level, you process the world through a cooler, more detached lens than most — emotions are data points rather than drivers. This makes you decisive in high-pressure situations where others freeze.',
+      'Your empathy is largely cognitive: you can model what others feel without being moved by it. This is an asset in negotiation, leadership, and crisis response. The shadow side is that people close to you can feel unseen or emotionally alone in the relationship.',
+      'The research on subclinical psychopathy is clear: elevated scores are over-represented in high-demand roles (surgery, law, finance, military leadership) precisely because of stress tolerance and decisiveness. The challenge is that the same detachment that helps you perform can quietly erode the relationships that matter.',
+      'Growth for this profile isn\'t about manufacturing emotions you don\'t feel. It\'s about developing deliberate habits that compensate for lower automatic empathy — proactively checking in, naming what you observe in others, choosing reciprocity as a practice rather than waiting to feel it.',
+    ],
+    medium: [
+      'Your Psychopathy score is in the moderate range — you have reasonable emotional resilience without being detached. You can make hard calls without being paralysed, while still feeling the weight of decisions that affect others.',
+      'In relationships, you\'re generally present and emotionally available, though under sustained stress you may become harder to reach. People close to you have probably noticed you go quieter when things get difficult.',
+      'Professionally, your stress tolerance is a genuine asset without being the coldness that high scorers sometimes project. You\'re seen as stable and reliable under pressure.',
     ],
     low: [
-      'You feel things deeply — both your own emotions and those of the people around you. You\'re likely described as warm, empathetic, and genuine. These qualities are rare and valuable.',
-      'Your high empathy makes you an exceptional listener and a trusted confidant. It also means conflict is particularly costly for you, and you may avoid it even when confrontation is necessary.',
-      'In high-stakes environments, your emotional responsiveness can be a liability if not managed deliberately. Others with lower empathy may read your reactions and use them strategically.',
+      'Your Psychopathy score is genuinely low — you feel things deeply, both your own emotions and those of the people around you. You\'re likely described as warm, empathetic, and trustworthy. These qualities are rare.',
+      'In relationships, your high empathy makes you an exceptional listener and a trusted confidant. It also means conflict is particularly costly for you, and you may avoid necessary confrontation to preserve the peace.',
+      'In competitive or high-stakes environments, your emotional responsiveness can work against you if not managed. Others with lower empathy may read your reactions and use them strategically. Learning to maintain composure as a skill — not by suppressing feeling, but by choosing when to show it — gives you protection without costing you your warmth.',
     ],
   },
   machiavellianism: {
     high: [
-      'You think in systems and strategies. Where others see a situation, you see a game — with players, incentives, and pressure points. This makes you an exceptional planner and negotiator.',
-      'You\'re comfortable with ambiguity and moral flexibility. When rules serve you, you follow them. When they don\'t, you find the edges. Most of your peers don\'t even know there are edges.',
-      'The cost of this worldview is trust. You know how people can be manipulated because you\'ve mapped the territory. Building genuinely close relationships requires you to choose vulnerability over strategy.',
+      'Your Machiavellianism score is your most strategically significant result. At this level, you think in systems and long games. Where others see a situation, you see a game — with players, incentives, and pressure points. This is a genuine advantage in complex environments.',
+      'In relationships, the texture of elevated Machiavellianism is often a trust asymmetry — you extend less trust to others than they extend to you. Over time, perceptive people in your life can feel this, even when you don\'t consciously intend to signal it.',
+      'Professionally, you navigate politics better than most, negotiate effectively, and rarely get blindsided by hidden agendas. The risk is reputation: high-Machiavellian patterns become legible to others over time. Being known as strategic is fine. Being known as willing to manipulate closes doors.',
+      'The most powerful strategists aren\'t just sharp — they\'re also trusted. Those two things can coexist, but they have to be built on purpose. Voluntary transparency with safe people is the paradox: it often increases your influence, because trust is one of the few forms of power that compounds.',
+    ],
+    medium: [
+      'Your Machiavellianism score sits in the moderate range — strategic social intelligence without it being the dominant driver of your behaviour. You read incentives and power dynamics well, and you adjust your approach accordingly.',
+      'In relationships, you\'re generally honest and direct, with a tendency toward tactical thinking in high-stakes situations. You know when you\'re managing a conversation versus having one — and you usually know which mode to be in.',
+      'Professionally, this is a useful range: you\'re politically aware without being seen as playing angles. Your growth edge is noticing when strategic mode is bleeding into personal relationships where it doesn\'t belong.',
     ],
     low: [
-      'You default to honesty and good faith in your dealings with others. You assume people mean what they say and are often right — but the exceptions can catch you badly off guard.',
-      'Your straightforwardness is refreshing and builds real trust over time. The risk is that in competitive environments, you play by rules that not everyone else has agreed to.',
-      'Learning to think strategically — not manipulatively, but with awareness of how others\' incentives shape their behaviour — would substantially protect your interests.',
+      'Your Machiavellianism score is genuinely low — you default to honesty and good faith in your dealings with others. You assume people mean what they say and are often right. The exceptions can catch you badly off guard.',
+      'In relationships, your straightforwardness builds real trust over time. People know where they stand with you, and that\'s rare. The risk is in competitive environments where not everyone has agreed to play by the same rules you do.',
+      'Learning to think strategically — not manipulatively, but with awareness of how others\' incentives shape their behaviour — would substantially protect your interests without changing who you are. Knowing the game exists isn\'t the same as playing it cynically.',
     ],
   },
 };
@@ -397,8 +415,11 @@ export default function ResultsPanel({
             {(Object.keys(TRAIT_CONFIG) as TraitKey[]).map((trait) => {
               const cfg = TRAIT_CONFIG[trait];
               const score = scores[trait];
-              const isHigh = score > 60;
-              const desc = isHigh ? TRAIT_DESCRIPTIONS[trait].high : TRAIT_DESCRIPTIONS[trait].low;
+              const desc = score > 65
+                ? TRAIT_DESCRIPTIONS[trait].high
+                : score >= 35
+                ? TRAIT_DESCRIPTIONS[trait].medium
+                : TRAIT_DESCRIPTIONS[trait].low;
               return (
                 <div
                   key={trait}
@@ -418,6 +439,23 @@ export default function ResultsPanel({
                 </div>
               );
             })}
+
+            {/* Combined Profile */}
+            <div className="rounded-xl border border-white/10 bg-white/3 p-5 mb-4">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Combined Profile</p>
+              <h3 className="font-bold text-base text-white mb-3">What your combination means</h3>
+              <p className="text-sm text-gray-400 leading-relaxed mb-2">
+                {scores.composite > 65
+                  ? `Your overall Dark Triad score is elevated — you share a psychological profile with a disproportionate number of people who hold positions of influence and leadership. The research shows these traits, when combined with self-awareness, tend to produce high achievers who can also sustain genuine relationships. Without awareness, the same profile tends to leave a trail of burned connections.`
+                  : scores.composite >= 40
+                  ? `Your overall Dark Triad score is moderate — your trait expression is contextual and adaptive. You can access strategic thinking and emotional resilience when the situation demands it, but you're not driven by them constantly. This range is associated with social flexibility and, importantly, real capacity for change.`
+                  : `Your overall Dark Triad score is low — you're in the majority of people who navigate the world with genuine empathy and good faith. Your profile's primary implication isn't about your own behaviour; it's about understanding the people around you who may score differently.`
+                }
+              </p>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                {`Your dominant trait is ${dominantTrait.charAt(0).toUpperCase() + dominantTrait.slice(1)} — which shapes how the rest of your profile expresses itself. Use the full report to get a personalised breakdown of what this specific combination means for your relationships and decisions.`}
+              </p>
+            </div>
 
             {/* Leaderboard Opt-in */}
             <div className="rounded-xl border border-white/10 bg-white/3 p-5 mb-6">
@@ -475,7 +513,7 @@ export default function ResultsPanel({
                     Personalised Report
                   </div>
                   <h2 className="text-xl font-black text-white mb-2">
-                    Get your Dark Triad Action Plan
+                    Get your Dark Triad Full Report
                   </h2>
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">
                     A personalised 6-page PDF report with in-depth per-trait analysis,
@@ -511,7 +549,7 @@ export default function ResultsPanel({
                     Preparing checkout…
                   </>
                 ) : (
-                  'Get Your Action Plan — $9 AUD →'
+                  'Get Your Full Report — $6.99 USD →'
                 )}
               </button>
               {tier3Error && <p className="text-xs text-red-400 mt-2 text-center">{tier3Error}</p>}
