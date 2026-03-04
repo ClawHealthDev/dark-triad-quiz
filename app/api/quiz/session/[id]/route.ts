@@ -12,7 +12,8 @@ export async function GET(
     try {
       const result = await client.query(
         `SELECT id, mode, subject_name, scores, percentiles,
-                share_token, is_preliminary, completed_at
+                share_token, is_preliminary, completed_at,
+                paid_report_unlocked, tier2_unlocked_at
          FROM quiz.sessions
          WHERE id = $1`,
         [params.id]
@@ -32,6 +33,8 @@ export async function GET(
         shareToken: row.share_token,
         isPreliminary: row.is_preliminary,
         completedAt: row.completed_at,
+        paid_report_unlocked: row.paid_report_unlocked ?? false,
+        tier2_unlocked: !!row.tier2_unlocked_at,
       });
     } finally {
       client.release();
