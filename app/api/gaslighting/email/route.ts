@@ -10,12 +10,12 @@ async function kitSubscribeGaslighting(
   band: string,
   totalScore: number
 ): Promise<{ success: boolean; error?: string }> {
-  const apiKey = process.env.KIT_API_KEY;
+  const apiKey = process.env.KIT_API_SECRET ?? process.env.KIT_API_KEY;
   if (!apiKey) return { success: false, error: 'No KIT_API_KEY configured' };
 
   try {
     // Get or create tag
-    const tagsRes = await fetch(`${KIT_BASE}/tags?api_key=${apiKey}`);
+    const tagsRes = await fetch(`${KIT_BASE}/tags?api_secret=${apiKey}`);
     if (!tagsRes.ok) return { success: false, error: `Kit tags fetch failed: ${tagsRes.status}` };
     const tagsData = await tagsRes.json();
     const tags: Array<{ id: number; name: string }> = tagsData.tags ?? [];
@@ -25,7 +25,7 @@ async function kitSubscribeGaslighting(
       const createRes = await fetch(`${KIT_BASE}/tags`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ api_key: apiKey, tag: { name: 'gaslighting-quiz' } }),
+        body: JSON.stringify({ api_secret: apiKey, tag: { name: 'gaslighting-quiz' } }),
       });
       if (!createRes.ok) return { success: false, error: `Kit tag create failed: ${createRes.status}` };
       const createData = await createRes.json();
@@ -40,7 +40,7 @@ async function kitSubscribeGaslighting(
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        api_key: apiKey,
+        api_secret: apiKey,
         email,
         fields: {
           gaslighting_band: band,
