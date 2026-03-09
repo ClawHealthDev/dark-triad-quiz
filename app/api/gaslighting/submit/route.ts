@@ -1,7 +1,7 @@
 export const runtime = 'nodejs';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { randomBytes } from 'crypto';
+
 import pool from '@/lib/db';
 import { scoreGasAnswers } from '@/lib/gasScoring';
 import type { GasAnswers } from '@/lib/gasScoring';

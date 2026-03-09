@@ -2,9 +2,6 @@ export const runtime = 'nodejs';
 
 import { NextRequest, NextResponse } from 'next/server';
 import pool from '@/lib/db';
-import { renderToBuffer } from '@react-pdf/renderer';
-import React from 'react';
-import { RealityGroundingGuide } from '@/lib/gasPdf';
 import type { GasBand } from '@/lib/gasScoring';
 
 export async function GET(req: NextRequest) {
@@ -19,7 +16,6 @@ export async function GET(req: NextRequest) {
     let safetyYes = false;
 
     if (sessionId && sessionId !== 'public') {
-      // Fetch from DB
       const client = await pool.connect();
       try {
         const result = await client.query(
@@ -36,7 +32,6 @@ export async function GET(req: NextRequest) {
         client.release();
       }
     } else if (bandParam) {
-      // Public/fallback — use query params (no safety block for anonymous)
       band = (['few', 'some', 'many'] as GasBand[]).includes(bandParam)
         ? bandParam
         : 'few';
@@ -44,19 +39,28 @@ export async function GET(req: NextRequest) {
       safetyYes = false;
     }
 
-    const element = React.createElement(RealityGroundingGuide, {
+    // Dynamic imports to avoid Edge runtime issues
+    const { renderToBuffer } = await import('@react-pdf/renderer');
+    const { RealityGroundingGuide } = await import('@/lib/gasPdf');
+    const React = (await import('react')).default;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const element = React.createElement(RealityGroundingGuide as any, {
       band,
       totalScore,
       safetyYes,
     });
 
-    const buffer = await renderToBuffer(element);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const buffer = await renderToBuffer(element as any);
+    const bytes = new Uint8Array(buffer);
 
-    return new NextResponse(buffer, {
+    return new NextResponse(bytes, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': 'attachment; filename="reality-grounding-guide.pdf"',
+        'Content-Length': String(bytes.byteLength),
         'Cache-Control': 'no-store',
       },
     });

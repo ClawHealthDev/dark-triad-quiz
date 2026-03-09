@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { GAS_QUESTIONS, GAS_SAFETY_QUESTION, GAS_ALL_SCORED_IDS } from '@/lib/gasQuestions';
+import { GAS_QUESTIONS, GAS_SAFETY_QUESTION } from '@/lib/gasQuestions';
 import type { GasResponse } from '@/lib/gasQuestions';
 import { bandColor, bandLabel, resultsCopy, SAFETY_RESOURCES } from '@/lib/gasScoring';
 import type { GasBand } from '@/lib/gasScoring';
@@ -55,9 +55,7 @@ export default function GasQuizClient() {
   const [apiError, setApiError] = useState<string | null>(null);
 
   // ── Progress ─────────────────────────────────────────────────────────────
-  const scoredAnswered = GAS_ALL_SCORED_IDS.filter((id) => answers[id] != null).length;
-  const totalScored = GAS_ALL_SCORED_IDS.length;
-  const progressPct = Math.round((scoredAnswered / totalScored) * 100);
+  
 
   // ── Page-level completion check ───────────────────────────────────────────
   const currentPageAnswered =
