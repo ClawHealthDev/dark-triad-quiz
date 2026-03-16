@@ -163,7 +163,7 @@ function QuestionCard({
             }`}
           >
             <span className="text-base sm:text-lg font-bold">{v}</span>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-wide leading-tight text-center hidden sm:block">
+            <span className="text-[8px] sm:text-[10px] uppercase tracking-wide leading-tight text-center block">
               {LIKERT_LABELS[v - 1].split(' ').map((w, i) => (
                 <span key={i} className="block">{w}</span>
               ))}
