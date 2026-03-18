@@ -3,7 +3,19 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Scroll Audit — What\'s actually driving your phone use?',
-  description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. Takes 2 minutes.',
+  description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+  openGraph: {
+    title: 'Scroll Audit — What\'s actually driving your phone use?',
+    description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+    url: 'https://quiz.theautomateddoctor.com/scroll-audit',
+    siteName: 'The Automated Doctor',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Scroll Audit — What\'s actually driving your phone use?',
+    description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+  },
 };
 
 export default function ScrollAuditLanding() {
