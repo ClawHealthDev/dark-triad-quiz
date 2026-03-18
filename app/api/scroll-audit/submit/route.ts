@@ -29,15 +29,13 @@ export async function POST(req: NextRequest) {
         if (process.env.KIT_API_KEY) {
           const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://quiz.theautomateddoctor.com';
           const reportUrl = `${baseUrl}/scroll-audit/report/${reportToken}`;
-          fetch('https://api.kit.com/v4/subscribers', {
+          // Subscribe via scroll-audit tag (ID: 17627291)
+          fetch(`https://api.convertkit.com/v3/tags/17627291/subscribe`, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${process.env.KIT_API_KEY}`,
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              email_address: email,
-              tags: [`scroll-audit`, `profile-${profile}`],
+              api_secret: process.env.KIT_API_KEY,
+              email: email,
               fields: {
                 scroll_profile: profile,
                 scroll_report_url: reportUrl,
