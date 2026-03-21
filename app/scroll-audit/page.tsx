@@ -2,19 +2,44 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Scroll Audit — What\'s actually driving your phone use?',
-  description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+  title: 'Scroll Addiction Test — Why Do You Scroll? | Phone Addiction Quiz',
+  description:
+    'Discover WHY you scroll, not just how much. 10-question quiz identifies your psychological scrolling driver: Autopilot, Connection Seeker, Stimulation Hunter, or Performer. Free — 2 minutes.',
+  keywords: [
+    'scroll addiction test',
+    'phone addiction quiz',
+    'dopamine trap quiz',
+    'scroll addiction',
+    'social media addiction',
+    'scrolling addiction test',
+    'phone addiction assessment',
+    'the automated doctor',
+  ],
+  alternates: {
+    canonical: 'https://quiz.theautomateddoctor.com/scroll-audit',
+  },
   openGraph: {
-    title: 'Scroll Audit — What\'s actually driving your phone use?',
-    description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+    title: 'Scroll Addiction Test — Why Do You Scroll?',
+    description:
+      '10 questions reveal WHY you scroll. Get your profile (Autopilot, Connection Seeker, Stimulation Hunter, or Performer). Free by The Automated Doctor.',
     url: 'https://quiz.theautomateddoctor.com/scroll-audit',
     siteName: 'The Automated Doctor',
     type: 'website',
+    images: [
+      {
+        url: '/api/og?page=scroll-audit',
+        width: 1200,
+        height: 630,
+        alt: 'Scroll Addiction Test — The Automated Doctor',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
-    title: 'Scroll Audit — What\'s actually driving your phone use?',
-    description: 'A 10-question diagnostic that identifies the psychological driver behind your scrolling pattern. 4 profiles. Takes 2 minutes. Free.',
+    card: 'summary_large_image',
+    title: 'Scroll Addiction Test — Why Do You Scroll?',
+    description:
+      '10 questions reveal WHY you scroll. Get your profile + break the dopamine trap. Free by The Automated Doctor.',
+    images: ['/api/og?page=scroll-audit'],
   },
 };
 
