@@ -1,4 +1,45 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dark Triad Personality Test — Free 3-Minute Quiz',
+  description:
+    'Discover your dark triad traits: narcissism, psychopathy, and Machiavellianism. Based on validated psychological scales (NPI-16, Levenson SRPS, MACH-IV) used by researchers worldwide. Free, anonymous — 3 minutes.',
+  keywords: [
+    'dark triad personality test',
+    'dark triad quiz',
+    'narcissism test',
+    'psychopathy quiz',
+    'machiavellianism test',
+    'dark triad profiler',
+    'personality assessment',
+    'the automated doctor',
+  ],
+  alternates: {
+    canonical: 'https://quiz.theautomateddoctor.com',
+  },
+  openGraph: {
+    title: 'Dark Triad Personality Test — Free 3-Minute Quiz',
+    description:
+      'Discover your dark triad traits: narcissism, psychopathy, and Machiavellianism. Free, anonymous — 3 minutes.',
+    url: 'https://quiz.theautomateddoctor.com',
+    images: [
+      {
+        url: '/api/og?page=dark-triad',
+        width: 1200,
+        height: 630,
+        alt: 'Dark Triad Personality Test — The Automated Doctor',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dark Triad Personality Test — Free 3-Minute Quiz',
+    description:
+      'Discover your dark triad traits: narcissism, psychopathy, and Machiavellianism. Free, anonymous — 3 minutes.',
+    images: ['/api/og?page=dark-triad'],
+  },
+};
 
 export default function HomePage() {
   return (
